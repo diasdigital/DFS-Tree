@@ -24,28 +24,25 @@ void insertNode(adrNode &root, adrNode p){
 }
 
 void printPreOrder(adrNode root){
-    if (root == NULL) {
-        return;
+    if (root != NULL) {
+        cout << info(root) << " ";
+        printPreOrder(left(root));
+        printPreOrder(right(root));
     }
-    cout << info(root) << " ";
-    printPreOrder(left(root));
-    printPreOrder(right(root));
 }
 
 void printInOrder(adrNode root){
-    if (root == NULL) {
-        return;
+    if (root != NULL) {
+        printInOrder(left(root));
+        cout << info(root) << " ";
+        printInOrder(right(root));
     }
-    printInOrder(left(root));
-    cout << info(root) << " ";
-    printInOrder(right(root));
 }
 
 void printPostOrder(adrNode root){
-    if (root == NULL) {
-        return;
+    if (root != NULL) {
+        printPostOrder(left(root));
+        printPostOrder(right(root));
+        cout << info(root) << " ";
     }
-    printPostOrder(left(root));
-    printPostOrder(right(root));
-    cout << info(root) << " ";
 }
